@@ -42,7 +42,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @PostMapping
     @ResponseBody
     public ResponseEntity<Object> postUser(@RequestBody UserDTO userDTO) {

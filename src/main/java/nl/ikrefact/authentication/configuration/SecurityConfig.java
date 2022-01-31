@@ -44,10 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        // Endpoint for token refresh
-        http.authorizeRequests().antMatchers(POST, "/api/v1/token/refresh").permitAll();
-
-
         http.authorizeRequests().antMatchers(GET, "/api/v1/auth/admin").hasAnyAuthority(ROLE_ADMIN);
         http.authorizeRequests().antMatchers(GET, "/api/v1/auth/mod").hasAnyAuthority(ROLE_MOD, ROLE_ADMIN);
         http.authorizeRequests().antMatchers(GET, "/api/v1/auth/user").hasAnyAuthority(ROLE_USER, ROLE_MOD, ROLE_ADMIN);
